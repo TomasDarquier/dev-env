@@ -93,4 +93,5 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 export PATH="$HOME/.local/scripts:$PATH"
 
+export PATH="$HOME/fzf/bin:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
