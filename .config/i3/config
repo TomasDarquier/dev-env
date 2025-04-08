@@ -222,3 +222,4 @@ client.focused_inactive       #333333 #111111 #aaaaaa #222222 #111111
 client.focused #666666 #222222 #aaaaaa #ffffff #000000
 client.urgent           #ff0000 #000000 #ffffff #ff0000 #000000
 
+bindsym $mod+p exec --no-startup-id ~/monitor/monitor.sh
