@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+cd ~
+
+# 1. Clonar el repositorio oficial
+git clone https://github.com/todotxt/todo.txt-cli.git
+
+# 2. Ir al directorio
+cd todo.txt-cli
+
+# 3. Instalar dependencias (necesita bash, coreutils, etc. — en general ya vienen)
+sudo apt update
+sudo apt install -y bash coreutils
+
+# 4. Hacer el script ejecutable
+chmod +x todo.sh
+
+# 5. Mover el script a una ubicación en tu $PATH
+sudo cp todo.sh /usr/local/bin/todo
+
+# 6. Crear un directorio para tus tareas
+mkdir -p ~/.todo
+
+# 7. Crear el archivo todo.txt
+touch ~/.todo/todo.txt
+
+# 8. Crear archivo de configuración
+cp todo.cfg ~/.todo/config
+
+# 9. Editar el archivo de configuración para apuntar a tu archivo
+sed -i 's|TODO_DIR=.*|TODO_DIR="$HOME/.todo"|' ~/.todo/config
+
+# 10. Crear un alias para facilitar el uso (opcional pero recomendable)
+echo 'alias todo="todo -d $HOME/.todo/config"' >> ~/.bashrc
+source ~/.bashrc
+
+sudo rm -r ~/todo.txt-cli

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!usr/bin/env bash
 
 if xrandr | grep "HDMI-1 connected"; then
   # Si HDMI está conectado, usarlo y apagar la pantalla de la laptop
