@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if xrandr | grep "HDMI-1 connected"; then
+  # Si HDMI está conectado, usarlo y apagar la pantalla de la laptop
+  xrandr --output HDMI-1 --mode 1920x1080 --primary --output eDP-1 --off
+else
+  # Si HDMI NO está conectado, volver a usar la pantalla de la laptop
+  xrandr --output eDP-1 --auto --primary --output HDMI-1 --off
+fi
+
