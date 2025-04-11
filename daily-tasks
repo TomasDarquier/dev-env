@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
+rm ~/.todo/todo.txt
+touch ~/.todo/todo.txt
+
+echo "cleaning file..."
+
 todo add "1h job apply"
 todo add "1h english"
 todo add "daily course"
 todo add "program until 7pm"
+
+echo "daily TODO ready"
