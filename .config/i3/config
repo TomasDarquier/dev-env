@@ -35,6 +35,9 @@ exec --no-startup-id nm-applet
 
 exec --no-startup-id picom
 
+# Launch Redshift when i3 starts
+exec --no-startup-id redshift
+
 #wallpaper
 exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.png
 
@@ -222,4 +225,19 @@ client.focused_inactive       #333333 #111111 #aaaaaa #222222 #111111
 client.focused #666666 #222222 #aaaaaa #ffffff #000000
 client.urgent           #ff0000 #000000 #ffffff #ff0000 #000000
 
+# script to change beteen monitors
 bindsym $mod+p exec --no-startup-id ~/monitor/monitor.sh
+
+# to change brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+# Mod+ ; para activar el modo noche (temperatura 3400K)
+bindsym $mod+semicolon exec --no-startup-id redshift -O 3400
+
+# Mod+ ' para activar el modo día (temperatura 5700K)
+bindsym $mod+apostrophe exec --no-startup-id redshift -O 5700
+
+# Mod+ \ para apagar Redshift (restaurar temperatura normal)
+bindsym $mod+backslash exec --no-startup-id redshift -x
+
