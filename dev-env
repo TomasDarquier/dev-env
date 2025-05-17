@@ -54,6 +54,7 @@ copy_dir .local $HOME/.local
 copy_file .xprofile $HOME
 copy_file .xsessionrc $HOME
 copy_file env/.zshrc $HOME
+copy_file env/init.vim $HOME/.config/nvim
 copy_file wallpaper.png $HOME/Pictures
 copy_file switch-screen $HOME
 copy_file daily-tasks $HOME
