@@ -37,10 +37,10 @@ exec --no-startup-id picom
 
 # Launch Redshift when i3 starts
 exec --no-startup-id redshift
+exec --no-startup-id redshift -O 3400
 
 #wallpaper
 exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpaper.png
-
 
 ## GAPS
 #smart_gaps on
@@ -117,6 +117,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
+# unavailable because the keys are being used
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -167,7 +168,7 @@ bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+10 move container to workspace number $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -226,7 +227,7 @@ client.focused #666666 #222222 #aaaaaa #ffffff #000000
 client.urgent           #ff0000 #000000 #ffffff #ff0000 #000000
 
 # script to change beteen monitors
-bindsym $mod+p exec --no-startup-id ~/monitor/monitor.sh
+bindsym $mod+m exec --no-startup-id ~/monitor/monitor.sh
 
 # to change brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
@@ -241,3 +242,13 @@ bindsym $mod+apostrophe exec --no-startup-id redshift -O 5700
 # Mod+ \ para apagar Redshift (restaurar temperatura normal)
 bindsym $mod+backslash exec --no-startup-id redshift -x
 
+# youtube_music scratchpad
+for_window [class="com.github.th_ch.youtube_music"] move to scratchpad
+for_window [class="com.github.th_ch.youtube_music"] floating enable
+bindsym $mod+y [class="com.github.th_ch.youtube_music"] scratchpad show; move position center
+
+# htop (task manager) scratchpad
+for_window [class="htop"] floating enable
+for_window [class="htop"] move to scratchpad
+exec_always --no-startup-id pgrep -f '^kitty --class htop,htop' || kitty --class htop,htop -e htop
+bindsym $mod+t [class="htop"] scratchpad show; move position center
